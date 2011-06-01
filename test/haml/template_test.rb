@@ -170,6 +170,10 @@ class TemplateTest < Test::Unit::TestCase
     end
   end
 
+  def test_comments
+    assert_renders_correctly "comments"
+  end
+
   def test_instance_variables_should_work_inside_templates
     @base.instance_variable_set("@content_for_layout", 'something')
     assert_equal("<p>something</p>", render("%p= @content_for_layout").chomp)
